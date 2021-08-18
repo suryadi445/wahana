@@ -5,7 +5,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Predis\Client;
 
-$logFile = file_get_contents('nginx.log');
+$logFile = file_get_contents('data_log/nginx.log');
+
 
 $regex = "/(\S+) (\S+) (\S+) (\[\d+\/\S+\ \+\d+\]) (\"\S+\s+\S+\s+\S+\") (\d+\d+) (\d+\d+) (\"\S+\") (\S+) (\S+) (\S+) (\S+) (\S+)/";
 
@@ -22,13 +23,17 @@ try {
     $user = $redis->get('json');
 
     echo $user . "\n";
-
+    echo 'data berhasil masuk kedalam redis';
+    echo "\n";
     $decode = json_decode($user);
     foreach ($decode as $key => $value) {
         $query = "INSERT INTO tbl_json (id, key_json, value_json) VALUES ('', '$key', '$value')";
         mysqli_query($koneksi, $query);
+        echo 'data berhasil masuk ke mysql';
+        echo "\n";
     }
     $redis->del('json');
+    echo 'data berhasil dihapus dari redis';
 } catch (Exception $e) {
     die($e->getMessage());
 }
