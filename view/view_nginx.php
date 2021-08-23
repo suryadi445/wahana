@@ -38,9 +38,8 @@ $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); /
                     </li>
                 </ul>
             </div>
-            <div class="container">
     </nav>
-    <div class=" container mt-2">
+    <div class="mt-2">
         <h1 class="text-center">ALL Result</h1>
         <!-- export csv -->
         <form method="post" action="../exportCSV_NGINX.php">
@@ -54,8 +53,17 @@ $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); /
                     <thead>
                         <tr>
                             <th scope="col" class="text-center">No</th>
-                            <th scope="col" class="text-center">Key</th>
-                            <th scope="col">Value</th>
+                            <th scope="col" class="text-center">Ip Address</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Method</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Ping</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">rt</th>
+                            <th scope="col">uct</th>
+                            <th scope="col">uht</th>
+                            <th scope="col">urt</th>
+                            <th scope="col">gz</th>
                         </tr>
                     </thead>
                     <tbody id="body_nginx">
@@ -66,8 +74,17 @@ $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); /
                         ?>
                                 <tr>
                                     <th class="text-center"><?= $no++ ?></th>
-                                    <td class="text-center"><?= $row['key_json'] ?></td>
-                                    <td><?= $row['value_json'] ?></td>
+                                    <td class="text-center"><?= $row['ip_address'] ?></td>
+                                    <td><?= $row['date_file'] ?></td>
+                                    <td><?= $row['method'] ?></td>
+                                    <td><?= $row['status_ms'] ?></td>
+                                    <td><?= $row['ping'] ?></td>
+                                    <td><?= $row['site_url'] ?></td>
+                                    <td><?= $row['rt'] ?></td>
+                                    <td><?= $row['uct'] ?></td>
+                                    <td><?= $row['uht'] ?></td>
+                                    <td><?= $row['urt'] ?></td>
+                                    <td><?= $row['gz'] ?></td>
                                 </tr>
                             <?php } ?>
                         <?php } ?>

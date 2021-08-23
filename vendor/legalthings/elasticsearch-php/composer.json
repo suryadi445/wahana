@@ -1,0 +1,17 @@
+{
+    "name": "legalthings/elasticsearch-php",
+    "description": "Elasticsearch for PHP",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.6.0",
+        "elasticsearch/elasticsearch": "^5.3"
+    },
+    "require-dev": {
+        "legalthings/php-code-quality": "^0.1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "LegalThings\\": "src/"
+        }
+    }
+}

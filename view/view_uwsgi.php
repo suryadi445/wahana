@@ -54,8 +54,9 @@ $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); /
                     <thead>
                         <tr>
                             <th scope="col" class="text-center">No</th>
-                            <th scope="col" class="text-center">Key</th>
-                            <th scope="col">Value</th>
+                            <th scope="col" class="text-center">Address</th>
+                            <th scope="col">Rss</th>
+                            <th scope="col">Pid</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,8 +67,9 @@ $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); /
                         ?>
                                 <tr>
                                     <th class="text-center"><?= $no++ ?></th>
-                                    <td class="text-center"><?= $row['key_json'] ?></td>
-                                    <td><?= $row['value_json'] ?></td>
+                                    <td class="text-center"><?= $row['address'] ?></td>
+                                    <td><?= $row['rss'] ?></td>
+                                    <td><?= $row['pid'] ?></td>
                                 </tr>
                             <?php } ?>
                         <?php } ?>
